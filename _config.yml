@@ -1,0 +1,42 @@
+title: Staystitch
+author: Stephanie
+description: "Stephanie writes about quilting, caregiving, and how one keeps teaching her the other."
+url: "https://staystitch.net"
+baseurl: ""
+lang: en
+
+# The contact form posts here (the Cloudflare Worker). See SETUP.md.
+contact_endpoint: "https://api.staystitch.net/contact"
+# Cloudflare Turnstile site key (public). Replace after creating the widget. See SETUP.md.
+turnstile_sitekey: "YOUR_TURNSTILE_SITE_KEY"
+
+# Each post gets one of these fabrics, picked from the length of its title.
+fabrics:
+  - { name: madder, hex: "#7A2E27" }
+  - { name: indigo, hex: "#1F2B4A" }
+  - { name: forest, hex: "#2F4A3A" }
+  - { name: plum,   hex: "#4A2F4F" }
+  - { name: walnut, hex: "#4A3424" }
+
+markdown: kramdown
+kramdown:
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+permalink: /:title/
+timezone: America/New_York
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: feed.xml
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

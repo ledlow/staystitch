@@ -1,0 +1,62 @@
+---
+layout: default
+title: Write to Stephanie
+description: Send Stephanie a note. She reads every one.
+---
+<main class="page">
+  <h1>Write to {{ site.author }}</h1>
+  <p class="lede">She reads every note. If she writes back, it will come from her own email to the address you give here.</p>
+
+  <p class="form-error" id="form-error" role="alert" hidden></p>
+
+  <form class="note-form" action="{{ site.contact_endpoint }}" method="post" accept-charset="utf-8">
+    <p class="about-post" id="about-post" hidden>About the post <strong id="about-title"></strong></p>
+    <input type="hidden" name="about" id="about-field" value="">
+
+    <div class="field">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required maxlength="100">
+    </div>
+    <div class="field">
+      <label for="email">Your email</label>
+      <span class="hint" id="email-hint">So she can write back. It isn’t shown anywhere on the site.</span>
+      <input id="email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="email-hint">
+    </div>
+    <div class="field">
+      <label for="message">Your note</label>
+      <textarea id="message" name="message" required maxlength="5000"></textarea>
+    </div>
+
+    <div class="honey" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="cf-turnstile" data-sitekey="{{ site.turnstile_sitekey }}" data-theme="light"></div>
+
+    <button class="send" type="submit">Send note</button>
+  </form>
+</main>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var about = (params.get('about') || '').slice(0, 200);
+    if (about) {
+      document.getElementById('about-field').value = about;
+      document.getElementById('about-title').textContent = '“' + about + '”';
+      document.getElementById('about-post').hidden = false;
+    }
+    var messages = {
+      check: 'The “are you human” check didn’t go through. Please try sending again.',
+      missing: 'Please fill in your name, your email and your note.',
+      send: 'Your note couldn’t be delivered just now. Please try again in a few minutes.'
+    };
+    var err = params.get('error');
+    if (err && messages[err]) {
+      var box = document.getElementById('form-error');
+      box.textContent = messages[err];
+      box.hidden = false;
+    }
+  })();
+</script>

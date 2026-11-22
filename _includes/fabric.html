@@ -1,0 +1,3 @@
+{%- comment -%} Sets `fabric` for a post: picked from the title's length so it never changes. {%- endcomment -%}
+{%- assign fabric_index = include.title | size | modulo: site.fabrics.size -%}
+{%- assign fabric = site.fabrics[fabric_index] -%}

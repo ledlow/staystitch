@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  {% include staystitch.html position="top: 22px" %}
+  <div class="wrap">
+    <div class="sig">
+      <span class="name">{{ site.title }}</span>
+      <span>Written by {{ site.author }}, one stitch at a time.</span>
+    </div>
+    <div class="links">
+      <a href="{{ '/write/' | relative_url }}">Write to {{ site.author }}</a>
+      <a href="{{ '/feed.xml' | relative_url }}">Follow by RSS</a>
+      <span>© {{ site.time | date: '%Y' }} staystitch.net</span>
+    </div>
+  </div>
+</footer>

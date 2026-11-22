@@ -1,0 +1,21 @@
+{%- if include.home -%}
+<header class="site-header is-home">
+  <svg class="texture" aria-hidden="true" viewBox="0 0 1624 616" preserveAspectRatio="xMidYMid slice" data-stitch="a line of stitching sewn just inside a cut edge" data-cols="58" data-rows="22" data-size="28"><path d=""></path></svg>
+  <div class="wrap">
+    {% include nav.html %}
+    <h1 class="wordmark">{{ site.title }}</h1>
+    <div class="definition">
+      <p class="term"><strong>stay·stitch</strong> <em>noun</em></p>
+      <p class="meaning">A line of stitching sewn just inside a cut edge, so the fabric holds its shape while you work with it.</p>
+    </div>
+  </div>
+  {% include staystitch.html position="bottom: 22px" %}
+</header>
+{%- else -%}
+<header class="site-header is-compact">
+  <div class="wrap">
+    <a class="wordmark-small" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    {% include nav.html %}
+  </div>
+</header>
+{%- endif -%}
