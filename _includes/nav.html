@@ -1,5 +1,4 @@
 <nav class="site-nav" aria-label="Main">
   <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Posts</a>
-  <a href="{{ '/#about' | relative_url }}">About</a>
   <a href="{{ '/write/' | relative_url }}"{% if page.url contains '/write/' %} aria-current="page"{% endif %}>Write to {{ site.author }}</a>
 </nav>

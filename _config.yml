@@ -1,6 +1,8 @@
 title: Staystitch
 author: Stephanie
 description: "Stephanie writes about quilting, caregiving, and how one keeps teaching her the other."
+# Shown in the browser tab on the home page and in the footer.
+tagline: "Written by Stephanie, one stitch at a time."
 url: "https://staystitch.net"
 baseurl: ""
 lang: en
