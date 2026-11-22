@@ -10,7 +10,7 @@ lang: en
 # The contact form posts here (the Cloudflare Worker). See SETUP.md.
 contact_endpoint: "https://api.staystitch.net/contact"
 # Cloudflare Turnstile site key (public). Replace after creating the widget. See SETUP.md.
-turnstile_sitekey: "YOUR_TURNSTILE_SITE_KEY"
+turnstile_sitekey: "0x4AAAAAAGNoDcOyKKH8_Pg1"
 
 # Each post gets one of these fabrics, picked from the length of its title.
 fabrics:
